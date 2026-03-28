@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──── Design Tokens ──── */
+:root {
+  --navy: #0D2240;
+  --navy-light: #1A3A6B;
+  --navy-mid: #14305A;
+  --gold: #F5C518;
+  --white: #FFFFFF;
+  --gray-bg: #F4F5F7;
+  --text-dark: #0D2240;
+  --text-muted: #6B7280;
+  --accent: #2563EB;
+}
+
+/* ──── Base Reset ──── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-open-sans), 'Open Sans', system-ui, sans-serif;
+  background: var(--white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ──── Selection ──── */
+::selection {
+  background: rgba(245, 197, 24, 0.35);
+  color: var(--navy);
+}
+
+/* ──── Scrollbar ──── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gray-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--navy-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--navy);
+}
+
+/* ──── Typography Utilities ──── */
+.font-display {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+}
+
+/* ──── Animations ──── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, transparent 25%, rgba(245,197,24,0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* ──── Glassmorphism Card ──── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ──── Gradient utilities ──── */
+.gradient-gold {
+  background: linear-gradient(135deg, #F5C518 0%, #FFD95A 50%, #F5C518 100%);
+}
+
+.gradient-navy {
+  background: linear-gradient(180deg, #0D2240 0%, #14305A 100%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #F5C518, #FFD95A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ──── Hover Effects ──── */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hover-glow-gold {
+  transition: box-shadow 0.3s ease;
+}
+.hover-glow-gold:hover {
+  box-shadow: 0 0 24px rgba(245, 197, 24, 0.3);
+}
+
+/* ──── Button transitions ──── */
+.btn-transition {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-transition:hover {
+  transform: translateY(-1px);
+}
+.btn-transition:active {
+  transform: translateY(0);
+}
